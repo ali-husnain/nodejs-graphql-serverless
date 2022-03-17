@@ -1,0 +1,31 @@
+type Customer {
+  cid: Int
+  first_name: String
+  Tickets: [Ticket]
+}
+type Ticket {
+  id: Int
+  order_id: String
+}
+
+input CustomerInput {
+  first_name: String
+  Tickets: [TicketInput]
+}
+input TicketInput {
+  order_id: String
+}
+
+type Query {
+    #mysql_getCustomer(id: Int!): Customer
+    mysql_getCustomer: Customer
+}
+
+type Mutation {
+    mysql_createCustomer(input: CustomerInput!): Customer
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

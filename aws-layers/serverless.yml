@@ -1,0 +1,23 @@
+
+service: aws-layers
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+  profile : default
+
+
+layers:
+  NodemodulesLayer:
+    path: nodemodules_layer
+    description: "Npm Dependencies"
+
